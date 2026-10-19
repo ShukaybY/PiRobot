@@ -1,0 +1,58 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+*service-account*.json
+secrets/
+.ssh/
+.aws/
+.config/
+.local/
+.bash_history
+.zsh_history
+.bashrc
+.profile
+.asoundrc
+# Python, tools, and installed environments
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+site-packages/
+dist-packages/
+pip-tmp/
+build/
+dist/
+*.egg-info/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+# Editors and personal machine metadata
+.DS_Store
+._*
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+# Runtime data (documentation/demo images elsewhere remain visible)
+*.log
+logs/
+recordings/
+captures/
+runtime/
+/capture.jpg
+/test.jpg
+/test.wav
+# Local model downloads and nested source backups
+models/
+/pi-backup/
+/github-ready/

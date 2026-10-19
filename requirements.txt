@@ -1,0 +1,11 @@
+# Direct third-party imports; versions are intentionally unpinned (not integration-tested).
+google-genai
+luma.oled
+Pillow
+sounddevice
+scipy
+numpy
+openwakeword
+RPi.GPIO
+# Explicit runtime backend for the supplied .onnx wake-word model:
+onnxruntime
