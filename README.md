@@ -146,21 +146,3 @@ Run one script at a time from the repository root with the virtual environment a
 | `python test_vision.py` | Captures `capture.jpg`, prompts for question, uploads image/question | No | **Yes; may incur charges** |
 
 `robot.py` moves servos, uses camera/microphone and calls Gemini (normally transcription plus response requests per accepted interaction). Audio is sent to Gemini for transcription; images and transcribed text are sent for responses. Local wake-word listening does not itself call Gemini. Conversations/responses are printed to the terminal. The latest camera image remains locally; temporary WAV files are normally deleted after successful transcription but can remain after errors. Avoid recording people or surroundings without appropriate consent.
-
-## Troubleshooting and limitations
-
-- Missing key: export `GEMINI_API_KEY` in the launch shell. The public copy reads the key from the environment and contains no embedded API key. Keep keys in your local shell configuration or an ignored private file.
-- Missing wake model: run the download step in the same environment as Python. Confirm the printed model path exists, or set `WAKEWORD_MODEL_PATH`. Backend/platform compatibility still needs Pi verification.
-- Audio errors/silence: use `python -m sounddevice`, `arecord -l`, and `aplay -l`. PortAudio device indexes differ from ALSA card IDs and may change after reboot. Main recording is hardcoded to device 1; see configuration for all edit points.
-- Camera failure: test rpicam-still independently. Capture code checks file existence, not process success; an old `capture.jpg` can be mistaken for a fresh image. Remove that runtime file before diagnosis. Capture occurs **after transcription**, not simultaneously.
-- OLED failure: confirm I2C enabled, permissions, bus 1/address 0x3C, and actual wiring. The optional `i2cdetect -y 1` scan is a Pi-side diagnostic, not evidence provided here.
-- Servo jitter/resets: software PWM and concurrent blink/emotion arm updates can interfere. Power capacity, grounding, endpoint calibration, and electrical validation need confirmation. Read [power](docs/power.md) before connecting actuators.
-- API errors: confirm account/model access, network, billing, and input support. No retry/backoff, robust general exception recovery, conversation history, or API cost controls are implemented.
-- Cleanup: only KeyboardInterrupt inside the main loop is handled; startup errors and other failures may leave GPIO/audio resources or media behind. Ctrl+C cleanup itself moves arms. Diagnostics have varying cleanup behavior.
-- Pi resources: the old README reports low RAM/tmpfs and package-install failures; fresh resource limits and dependency compatibility need confirmation. No performance claims are established by this preparation.
-
-## Verification and remaining decisions
-
-See [verification](docs/verification.md) for actual static checks and Pi-only tests still outstanding. The project uses the [MIT License](LICENSE). Third-party dependencies and downloaded models retain their own licenses. Audio, camera, and servos are owner-confirmed working with outlet power. Exact supply wiring, safe servo limits, device assignments for other installations, model access, dependency versions, and a smoke test of this sanitized copy remain to be confirmed. This folder is prepared for source review; it is not an electrically validated or integration-tested release.
-
-The project source is available under the MIT License. Its Gemini integration calls an external hosted service and requires each user’s own API key; publishing this source does not include credentials or make the service part of the project’s open-source code.
