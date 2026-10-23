@@ -10,7 +10,7 @@ fruit_box is a Python desktop robot project combining OLED expressions, two serv
 
 ## Prototype and demo
 
-The build uses a repurposed fruit box for its prototype enclosure. Audio, camera, and servo operation are owner-confirmed; the photographs document the physical build.
+The build uses a repurposed fruit box for its prototype enclosure. Audio, camera, and servo operation. the photographs document the physical build.
 
 <details>
 <summary>Inside the prototype</summary>
@@ -25,7 +25,7 @@ The build uses a repurposed fruit box for its prototype enclosure. Audio, camera
 
 ### Earlier voice-conversation demo
 
-This excerpt is transcribed from an earlier terminal screenshot. It shows audio transcription, Gemini responses, emotion parsing, and playback logging. That prototype used the former name **Cosmo** and an Enter trigger; the current public name is **fruit_box** and the code listens for **Hey Jarvis**. The private shell prompt is omitted. No API key appears in this excerpt.
+This excerpt is transcribed from an earlier terminal screenshot. It shows audio transcription, Gemini responses, emotion parsing, and playback logging. That prototype used the former name **Cosmo** and an Enter trigger; the current public name is **fruit_box** and the code listens for **Hey Jarvis**.
 
 ```text
 Press Enter to speak...
@@ -39,7 +39,6 @@ Cosmo: I get so mad when fuzzy dust bunnies get stuck in my wheels and stop my e
 Playing WAVE 'stdin' : Signed 16 bit Little Endian, Rate 22050 Hz, Mono
 ```
 
-The response’s reference to wheels is generated character dialogue, not evidence that locomotion is implemented.
 
 ## Implementation and evidence
 
@@ -73,7 +72,6 @@ Planned, with no implementation here: tank locomotion with DRV8833/N20 motors, d
 └── requirements.txt
 ```
 
-No raw backup, installed packages, private shell/SSH/audio configuration, recordings, camera captures, or unreviewed screenshot is included. Keep scripts in this root so `expressions` and `eye_lib` imports continue to resolve.
 
 ## Raspberry Pi setup
 
